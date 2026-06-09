@@ -1,0 +1,79 @@
+/* ==========================================================
+   variables.css
+   Design tokens for the entire site.
+   ========================================================== */
+:root {
+  /* ---------- color palette ---------- */
+  --bg-0:           #0b0b0d;   /* deep charcoal   */
+  --bg-1:           #121212;   /* main background */
+  --bg-2:           #18181b;   /* card surfaces   */
+  --bg-3:           #222226;   /* raised surface  */
+  --bg-glass:       rgba(18, 18, 19, 0.55);
+
+  --line:           rgba(255, 255, 255, 0.08);
+  --line-strong:    rgba(255, 255, 255, 0.18);
+
+  --text-0:         #ffffff;
+  --text-1:         #e6e6e8;
+  --text-2:         #a1a1aa;
+  --text-3:         #6b6b75;
+
+  --primary:        #ccff00;   /* Electric Lime    */
+  --primary-dim:    #a8d600;
+  --accent:         #ff5733;   /* Cyber Orange     */
+  --danger:         #ef4444;
+  --success:        #22c55e;
+
+  --grad-primary:   linear-gradient(135deg, #ccff00 0%, #76ff03 50%, #ff5733 100%);
+  --grad-glow:      radial-gradient(60% 50% at 50% 0%, rgba(204,255,0,.25), transparent 70%);
+
+  /* ---------- typography ---------- */
+  --font-sans:      'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-display:   'Space Grotesk', 'Inter', sans-serif;
+
+  --fs-xs:  0.75rem;
+  --fs-sm:  0.875rem;
+  --fs-md:  1rem;
+  --fs-lg:  1.125rem;
+  --fs-xl:  1.35rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.5rem;
+  --fs-4xl: clamp(2.5rem, 6vw, 5rem);
+
+  /* ---------- spacing ---------- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+
+  /* ---------- radius ---------- */
+  --r-1:  6px;
+  --r-2:  10px;
+  --r-3:  16px;
+  --r-4:  24px;
+  --r-pill: 999px;
+
+  /* ---------- shadows / glows ---------- */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,.4);
+  --shadow-md:  0 8px 24px rgba(0,0,0,.4);
+  --shadow-lg:  0 24px 60px rgba(0,0,0,.6);
+  --glow-primary: 0 0 0 1px rgba(204,255,0,.4), 0 0 32px rgba(204,255,0,.25);
+  --glow-accent:  0 0 0 1px rgba(255,87,51,.4), 0 0 32px rgba(255,87,51,.3);
+
+  /* ---------- transitions ---------- */
+  --ease-out:  cubic-bezier(.2,.8,.2,1);
+  --ease-in:   cubic-bezier(.8,0,.6,1);
+  --ease-soft: cubic-bezier(.4,0,.2,1);
+  --t-fast:  150ms;
+  --t-med:   260ms;
+  --t-slow:  500ms;
+
+  /* ---------- layout ---------- */
+  --container-w: 1280px;
+  --navbar-h:    72px;
+}

@@ -1,0 +1,211 @@
+/* ==========================================================
+   animations.css
+   All keyframes and animation utility classes.
+   ========================================================== */
+
+/* ---------- KEYFRAMES ---------- */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-down {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-in-right {
+  from { transform: translateX(110%); }
+  to   { transform: translateX(0); }
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@keyframes heart-pop {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.4); }
+  60%  { transform: scale(.9); }
+  100% { transform: scale(1); }
+}
+@keyframes badge-pop {
+  0%   { transform: scale(0);   opacity: 0; }
+  50%  { transform: scale(1.4); opacity: 1; }
+  100% { transform: scale(1);   opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(204,255,0,.5); }
+  50%      { box-shadow: 0 0 0 12px rgba(204,255,0,0); }
+}
+@keyframes typing-caret {
+  0%, 50%   { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+@keyframes cart-fly-anim {
+  0%   { transform: translate(-50%, -50%) scale(.5); opacity: 0; }
+  20%  { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(80vw, -60vh) scale(.6); opacity: 0; }
+}
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(40px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+  to   { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---------- REVEAL (Intersection Observer) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 700ms var(--ease-out),
+              transform 700ms var(--ease-out);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger helper */
+.reveal[data-delay="1"] { transition-delay: 100ms; }
+.reveal[data-delay="2"] { transition-delay: 200ms; }
+.reveal[data-delay="3"] { transition-delay: 300ms; }
+.reveal[data-delay="4"] { transition-delay: 400ms; }
+
+/* ---------- TYPING EFFECT (hero) ---------- */
+.line::after {
+  content: '|';
+  display: inline-block;
+  margin-left: 2px;
+  animation: typing-caret 800ms steps(2) infinite;
+  color: var(--primary);
+}
+.line.done::after { display: none; }
+
+/* ---------- MODAL / DRAWER OPEN STATES ---------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: var(--sp-4);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity var(--t-med);
+}
+.modal.open {
+  pointer-events: auto;
+  opacity: 1;
+}
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.7);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+.modal-card {
+  position: relative;
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-3);
+  padding: var(--sp-6);
+  box-shadow: var(--shadow-lg);
+  transform: scale(.94);
+  transition: transform var(--t-med) var(--ease-out);
+}
+.modal.open .modal-card { transform: scale(1); animation: modal-in 350ms var(--ease-out); }
+.full-modal .modal-card { width: min(720px, 100%); }
+
+.modal-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  font-size: 22px;
+  background: rgba(255,255,255,.05);
+  z-index: 5;
+}
+
+/* ---------- TOAST ---------- */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 100px);
+  background: var(--bg-3);
+  color: var(--text-0);
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-md);
+  z-index: 1000;
+  opacity: 0;
+  transition: transform var(--t-med) var(--ease-out), opacity var(--t-med);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  display: flex; align-items: center; gap: var(--sp-2);
+}
+.toast.show { transform: translate(-50%, 0); opacity: 1; }
+.toast::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--primary);
+}
+
+/* ---------- FLYING +1 ---------- */
+.cart-fly {
+  position: fixed;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--primary);
+  color: #0b0b0d;
+  font-weight: 700;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-sm);
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0;
+}
+.cart-fly.go { animation: cart-fly-anim 900ms var(--ease-out) forwards; }
+
+/* ---------- LOADING SPINNER ---------- */
+.spinner {
+  width: 22px; height: 22px;
+  border: 2px solid var(--line);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin .8s linear infinite;
+  display: inline-block;
+}
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

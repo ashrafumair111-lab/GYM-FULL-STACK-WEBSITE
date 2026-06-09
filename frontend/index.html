@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="RepForge — premium gym equipment, apparel, supplements & accessories. Fuel your grind." />
+  <meta name="theme-color" content="#121212" />
+  <title>RepForge · Premium Gym Store</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/layout.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23ccff00%27/%3E%3Ctext x=%2732%27 y=%2744%27 text-anchor=%27middle%27 font-size=%2734%27 font-weight=%27800%27 font-family=%27sans-serif%27 fill=%27%230b0b0d%27%3ERF%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <header class="navbar reveal" id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo" aria-label="RepForge Home">
+        <span class="logo-mark">RF</span>
+        <span class="logo-text">RepForge</span>
+      </a>
+
+      <form class="search-bar" role="search" onsubmit="return App.search(event)">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+          <path d="M21 21l-4.3-4.3M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"
+                stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input id="searchInput" type="search" placeholder="Search gear, supplements, brands…" />
+      </form>
+
+      <nav class="nav-actions" aria-label="Primary">
+        <div class="dropdown">
+          <button class="nav-link" aria-haspopup="true" aria-expanded="false">
+            Categories
+            <svg viewBox="0 0 24 24" width="14" height="14"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <ul class="dropdown-menu" role="menu">
+            <li role="none"><a role="menuitem" href="#" data-cat="equipment">Equipment</a></li>
+            <li role="none"><a role="menuitem" href="#" data-cat="apparel">Apparel</a></li>
+            <li role="none"><a role="menuitem" href="#" data-cat="supplements">Supplements</a></li>
+            <li role="none"><a role="menuitem" href="#" data-cat="accessories">Accessories</a></li>
+          </ul>
+        </div>
+
+        <button class="icon-btn wishlist-btn" id="wishlistBtn" aria-label="Wishlist">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 1 0-7.8 7.8l1.1 1.1L12 21l7.8-7.5 1.1-1.1a5.5 5.5 0 0 0 0-7.8z" stroke="currentColor" stroke-width="1.7" fill="none"/></svg>
+          <span class="badge" id="wishlistCount">0</span>
+        </button>
+
+        <button class="icon-btn cart-btn" id="cartBtn" aria-label="Open cart">
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M6 6h15l-1.5 9h-12zM6 6L5 3H2M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm9 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="badge pulse" id="cartCount">0</span>
+        </button>
+
+        <button class="icon-btn profile-btn" id="profileBtn" aria-label="Account">
+          <svg viewBox="0 0 24 24" width="22" height="22"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.7" fill="none"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero-bg" data-parallax id="heroBg"></div>
+      <div class="hero-glow"></div>
+
+      <div class="hero-content">
+        <span class="hero-tag reveal">NEW DROP · WINTER 2026</span>
+        <h1 class="hero-title">
+          <span class="line" data-typing="Forge"></span>
+          <span class="line gradient-text" data-typing="Your Edge."></span>
+        </h1>
+        <p class="hero-sub reveal">
+          Commercial-grade equipment, performance apparel and clean
+          supplements — engineered for athletes who don't skip leg day.
+        </p>
+        <div class="hero-cta reveal">
+          <a href="#catalog" class="btn btn-primary glow">
+            Shop Now
+            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#categories" class="btn btn-ghost">Explore Categories</a>
+        </div>
+
+        <ul class="hero-stats reveal">
+          <li><strong>15K+</strong><span>athletes</span></li>
+          <li><strong>4.9★</strong><span>store rating</span></li>
+          <li><strong>48h</strong><span>fast ship</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== CATEGORIES ===================== -->
+    <section class="section" id="categories" aria-labelledby="cat-title">
+      <header class="section-head">
+        <h2 id="cat-title" class="section-title reveal">Shop by Category</h2>
+        <p class="section-sub reveal">Curated gear across every discipline.</p>
+      </header>
+
+      <div class="cat-grid" id="catGrid">
+        <!-- filled by JS with inline SVG art -->
+      </div>
+    </section>
+
+    <!-- ===================== CATALOG ===================== -->
+    <section class="section" id="catalog" aria-labelledby="cat-catalog">
+      <header class="section-head">
+        <h2 id="cat-catalog" class="section-title reveal">Featured Products</h2>
+        <p class="section-sub reveal">Hand-picked, athlete-tested.</p>
+      </header>
+
+      <div class="catalog-layout">
+        <aside class="filters reveal" aria-label="Filters">
+          <h3>Filter</h3>
+
+          <div class="filter-group">
+            <label>Category</label>
+            <select id="filterCategory">
+              <option value="">All</option>
+              <option value="equipment">Equipment</option>
+              <option value="apparel">Apparel</option>
+              <option value="supplements">Supplements</option>
+              <option value="accessories">Accessories</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label>Max price: <span id="priceLabel">$2000</span></label>
+            <input type="range" id="filterPrice" min="20" max="2000" value="2000" step="10" />
+          </div>
+
+          <div class="filter-group">
+            <label>Min rating: <span id="ratingLabel">0★</span></label>
+            <input type="range" id="filterRating" min="0" max="5" value="0" step="0.5" />
+          </div>
+
+          <div class="filter-group">
+            <label>Sort by</label>
+            <select id="filterSort">
+              <option value="newest">Newest</option>
+              <option value="price_asc">Price · Low → High</option>
+              <option value="price_desc">Price · High → Low</option>
+              <option value="name_asc">Name · A → Z</option>
+              <option value="name_desc">Name · Z → A</option>
+              <option value="rating">Top Rated</option>
+            </select>
+          </div>
+
+          <button class="btn btn-ghost btn-block" id="resetFilters">Reset</button>
+        </aside>
+
+        <div class="catalog-grid" id="productGrid" aria-live="polite">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="cta-band reveal">
+      <div class="cta-inner">
+        <div>
+          <h2>Join the Forge</h2>
+          <p>10% off your first order · exclusive drops · early access.</p>
+        </div>
+        <form class="cta-form" onsubmit="return App.subscribe(event)">
+          <input type="email" placeholder="your@email.com" required />
+          <button class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><span class="logo-mark">RF</span><span class="logo-text">RepForge</span></div>
+        <p class="muted">Premium gear for athletes who refuse average.</p>
+      </div>
+      <div>
+        <h4>Shop</h4>
+        <ul><li><a href="#">Equipment</a></li><li><a href="#">Apparel</a></li><li><a href="#">Supplements</a></li><li><a href="#">Accessories</a></li></ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul><li><a href="#">About</a></li><li><a href="#">Careers</a></li><li><a href="#">Press</a></li><li><a href="#">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">FAQ</a></li><li><a href="#">Sizing</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 RepForge. Built with sweat & code.</div>
+  </footer>
+
+  <!-- ===================== CART DRAWER ===================== -->
+  <aside class="drawer" id="cartDrawer" aria-hidden="true" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h3>Your Cart</h3>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">×</button>
+    </div>
+    <div class="drawer-body" id="cartItems">
+      <p class="empty">Your cart is empty.</p>
+    </div>
+    <div class="drawer-foot">
+      <div class="cart-totals">
+        <span>Subtotal</span><strong id="cartSubtotal">$0.00</strong>
+      </div>
+      <button class="btn btn-primary btn-block" id="goCheckout">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- ===================== QUICK VIEW MODAL ===================== -->
+  <div class="modal" id="quickView" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="qv-title">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card">
+      <button class="icon-btn modal-close" data-close aria-label="Close">×</button>
+      <div class="modal-grid">
+        <div class="modal-img"><img id="qvImage" alt="" /></div>
+        <div class="modal-info">
+          <span class="cat-tag" id="qvCategory"></span>
+          <h2 id="qv-title"></h2>
+          <div class="rating" id="qvRating"></div>
+          <p class="price" id="qvPrice"></p>
+          <p id="qvDescription"></p>
+          <div class="modal-actions">
+            <div class="qty">
+              <button data-qty="-1">−</button>
+              <input type="number" id="qvQty" value="1" min="1" max="99" />
+              <button data-qty="+1">+</button>
+            </div>
+            <button class="btn btn-primary" id="qvAdd">Add to Cart</button>
+            <button class="icon-btn" id="qvWish" aria-label="Wishlist">♥</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== AUTH MODAL ===================== -->
+  <div class="modal" id="authModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card auth-card">
+      <button class="icon-btn modal-close" data-close aria-label="Close">×</button>
+      <h2 id="authTitle">Sign In</h2>
+      <form id="authForm" class="auth-form">
+        <div class="field" data-when="register">
+          <label>Name</label>
+          <input name="name" type="text" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input name="email" type="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input name="password" type="password" required minlength="8" autocomplete="current-password" />
+        </div>
+        <button class="btn btn-primary btn-block" type="submit">Continue</button>
+        <p class="muted center">
+          <span id="authToggle">New here?</span>
+          <a href="#" id="authSwitch">Create an account</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===================== DASHBOARD ===================== -->
+  <div class="modal full-modal" id="dashboard" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card dashboard-card">
+      <button class="icon-btn modal-close" data-close aria-label="Close">×</button>
+      <h2>My Dashboard</h2>
+
+      <div class="dash-grid">
+        <div class="dash-stat"><span id="dashOrders">0</span><small>orders</small></div>
+        <div class="dash-stat"><span id="dashLifetime">$0</span><small>lifetime</small></div>
+        <div class="dash-stat"><span id="dashStatus">—</span><small>last status</small></div>
+      </div>
+
+      <h3>Recent Orders</h3>
+      <div class="dash-orders" id="dashOrdersList">
+        <p class="empty">No orders yet. Start shopping!</p>
+      </div>
+
+      <h3>Profile</h3>
+      <form class="auth-form" id="profileForm">
+        <div class="field"><label>Name</label><input name="name" type="text" required /></div>
+        <div class="field"><label>Email</label><input name="email" type="email" required /></div>
+        <div class="field"><label>New password (optional)</label><input name="password" type="password" minlength="8" /></div>
+        <button class="btn btn-primary">Save changes</button>
+      </form>
+
+      <button class="btn btn-ghost btn-block" id="logoutBtn">Log out</button>
+    </div>
+  </div>
+
+  <!-- ===================== CHECKOUT MODAL ===================== -->
+  <div class="modal" id="checkoutModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="co-title">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card checkout-card">
+      <button class="icon-btn modal-close" data-close aria-label="Close">×</button>
+      <h2 id="co-title">Checkout</h2>
+      <ol class="checkout-steps" aria-label="Checkout progress">
+        <li class="active" data-step="1">Address</li>
+        <li data-step="2">Payment</li>
+        <li data-step="3">Confirm</li>
+      </ol>
+      <form id="checkoutForm" novalidate>
+        <fieldset data-pane="1">
+          <div class="field"><label>Full name</label><input name="full_name" required /></div>
+          <div class="field"><label>Shipping address</label><textarea name="shipping_address" rows="3" required></textarea></div>
+          <div class="row">
+            <div class="field"><label>City</label><input name="city" required /></div>
+            <div class="field"><label>ZIP</label><input name="zip" required pattern="\d{4,10}" /></div>
+          </div>
+          <button type="button" class="btn btn-primary" data-next="2">Continue</button>
+        </fieldset>
+        <fieldset data-pane="2" hidden>
+          <div class="field"><label>Card number</label><input name="card" required inputmode="numeric" pattern="\d{12,19}" placeholder="4242 4242 4242 4242" /></div>
+          <div class="row">
+            <div class="field"><label>Expiry</label><input name="exp" required placeholder="MM/YY" pattern="\d{2}/\d{2}" /></div>
+            <div class="field"><label>CVC</label><input name="cvc" required pattern="\d{3,4}" /></div>
+          </div>
+          <div class="row">
+            <button type="button" class="btn btn-ghost" data-prev="1">Back</button>
+            <button type="button" class="btn btn-primary" data-next="3">Review</button>
+          </div>
+        </fieldset>
+        <fieldset data-pane="3" hidden>
+          <div id="orderSummary"></div>
+          <div class="row">
+            <button type="button" class="btn btn-ghost" data-prev="2">Back</button>
+            <button type="submit" class="btn btn-primary">Place order</button>
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="cart-fly" id="cartFly" aria-hidden="true"><span>+1</span></div>
+
+  <script src="js/svg-art.js"></script>
+  <script src="js/demo-data.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
