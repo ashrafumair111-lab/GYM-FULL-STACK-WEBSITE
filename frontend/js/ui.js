@@ -249,7 +249,16 @@ const UI = (() => {
       f.elements.email.value = profile.email;
       f.elements.password.value = '';
       $('#dashboard').classList.add('open');
-    } catch (e) { Animate.toast(e.message); }
+    } catch (e) {
+      // If token was invalid/expired, it's already been cleared by api.js.
+      // Show login modal instead of error.
+      if (!API.isLoggedIn()) {
+        Animate.toast('Please sign in to view your account');
+        openAuth('login');
+      } else {
+        Animate.toast(e.message);
+      }
+    }
   };
 
   /* =====================================================
