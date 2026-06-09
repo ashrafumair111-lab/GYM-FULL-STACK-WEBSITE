@@ -21,8 +21,8 @@ router.get('/profile', requireAuth, async (req, res, next) => {
       [req.user.id]
     );
     if (!rows.length) {
-      return res.status(404).json({
-        success: false, code: 'NOT_FOUND', message: 'User not found.'
+      return res.status(401).json({
+        success: false, code: 'INVALID_TOKEN', message: 'User not found. Please sign in again.'
       });
     }
     res.json({ success: true, data: rows[0] });
